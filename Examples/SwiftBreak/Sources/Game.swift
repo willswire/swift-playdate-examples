@@ -36,6 +36,7 @@ struct Game: ~Copyable {
     Sprite.setupWalls()
 
     // Start in loading state with 4 x 10 bricks.
+      
     let brick = Sprite.brick()
     let splash = Sprite.splash()
     splash.addSprite()
@@ -46,7 +47,7 @@ struct Game: ~Copyable {
         ball: .ball(),
         paddle: .paddle(),
         gameOver: .gameOver(),
-        bricks: .init(count: 40, first: brick) { $0.copy() })
+        bricks: .init(count: 40, first: brick) { _ in Sprite.brick() })
     Sprite.drawSprites()
     self.state = .loading
   }
